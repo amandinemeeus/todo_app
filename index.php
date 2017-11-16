@@ -1,4 +1,4 @@
-<!-- <?php include "core/request.php" ?> -->
+<?php include "core/request.php" ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -132,7 +132,7 @@
                         <div class= "item-border"></div>
                         <h2 class="item-big-title">END AT</h2>
                         <div class="item-title"><span class="retrait">December 12, 3 PM</span></div>
-                        <div id="demo"></div>
+                        <div id="first-mtr-datepicker"></div>
                         <div class= "item-border"></div>
 
                     </footer>
@@ -166,10 +166,10 @@
 <script type="text/javascript" src="datepicker/dist/mtr-datepicker.min.js"></script>
 <!--DATEPICKER-->
 <script>
-var datepickerDefault = new MtrDatepicker(
-	{
-	  target: "demo",
-	} );
+  var config = {
+    target: 'first-mtr-datepicker'
+  };
+  var myDatepicker = new MtrDatepicker(config);
 </script>
 <!--Script end-->
 

@@ -24,3 +24,7 @@ var contenu1 = document.getElementById('contenu1');
 var contenu2 = document.getElementById('contenu2');
 var x = true;
 rajouter.addEventListener('click',changeContenu);
+
+
+
+// CONNECT TO DATABASE
