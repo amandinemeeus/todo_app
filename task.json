@@ -1,0 +1,16 @@
+[
+{"type":"header","version":"4.7.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"todo_app"},
+{"type":"table","name":"task","database":"todo_app","data":
+[
+{"task_id":"1","task_title":"My first task","task_description":"","task_start_at":"","task_end_at":"","task_ended_at":""},
+{"task_id":"2","task_title":"Take a shower","task_description":"My description","task_start_at":"","task_end_at":"","task_ended_at":""},
+{"task_id":"3","task_title":"Make my bag","task_description":"My description","task_start_at":"","task_end_at":"","task_ended_at":""},
+{"task_id":"4","task_title":"Take a breakfast","task_description":"My description","task_start_at":"","task_end_at":"","task_ended_at":""},
+{"task_id":"5","task_title":"Go to bus stop","task_description":"My description ","task_start_at":"","task_end_at":"","task_ended_at":""},
+{"task_id":"6","task_title":"Be at Becode on 9:00","task_description":"My description","task_start_at":"","task_end_at":"","task_ended_at":""},
+{"task_id":"7","task_title":"Start coding","task_description":"My description","task_start_at":"","task_end_at":"","task_ended_at":""},
+{"task_id":"8","task_title":"I nead a real BREAK","task_description":"My description","task_start_at":"","task_end_at":"","task_ended_at":""}
+]
+}
+]
