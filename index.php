@@ -1,4 +1,5 @@
 <?php include "core/request.php" ?>
+<?php include "core/debug.php" ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -7,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TodoList</title>
 <!-- MY CSS -->
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
 <!-- MY FONTS -->
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
 <!-- DATEPICKER PLUGIN -->
@@ -47,22 +48,27 @@
                 <li class="list-item"> <!--relative-->
                     <!-- <span class="todo-check"></span> -->
                     <header class="item-header">
-                        <li class="item-title" id="done"><span class="done">Take a shower</span></li>
+
+                        <li class="item-title" id="done"><span class="done"></span></li>
+                        <li class="item-title" id="late"><span class="late"></span></li>
+                        <li class="item-title" id="todo"></li>
+
+                        <!-- <li class="item-title" id="done"><span class="done">Take a shower</span></li>
                         <li class="item-title" id="done"><span class="done">Make my bag</span></li>
                         <li class="item-title" id="done"><span class="done">Take a breakfast</span></li>
                         <li class="item-title" id="late"><span class="late">Go to bus stop</span></li>
                         <li class="item-title" id="todo">Be at Becode to 9:00</li>
                         <li class="item-title" id="todo">Start coding</li>
                         <li class="item-title" id="todo">I need a real BREAK</li>
-                        <li class="item-title" id="todo">Go to bus stop</li>
+                        <li class="item-title" id="todo">Go to bus stop</li> -->
                             <!-- <button class="button" type="menu">Cliquez sur moi :)</button> -->
                             <ul class="menu"> <!--absolute-->
-                                <li class="menu-item">Delete</li>
-                                <li class="menu-item">Edit</li>
+                                <li class="menu-item"><a href="#">Delete</a></li>
+                                <li class="menu-item"><a href="#">Edit</a></li>
                             </ul>
                     </header>
                     <div class="item-container">
-                        My bus arrive on 7:30 I'll be on 7:15 at bus stop
+                        <!-- My bus arrive on 7:30 I'll be on 7:15 at bus stop -->
                     </div>
                     <footer class="item-footer">
                         <span>Started on:</span>
@@ -81,9 +87,9 @@
         <div class="centered">
             <ul class="display-of-app">
                 <li>Show:</li>
-                <li class="underline">All task</li>
-                <li>Todo task</li>
-                <li>Done task</li>
+                <li class="underline"><a href="#">All task</a></li>
+                <li><a href="#">Todo task</a></li>
+                <li><a href="#">Done task</a></li>
             </ul>
         </div>
     </div>
@@ -111,7 +117,7 @@
     <div class="main-container">
         <!--Centered start-->
         <div class="centered">
-            <div class="clear">Clear</div>
+            <div class="clear"><a href="#" id="clear">Clear</a></div>
             <!--Ul start-->
             <ul class="list" id="todo-list">
                 <!--one-->
@@ -147,8 +153,9 @@
     <div class="main-footer">
         <div class="centered">
             <ul class="action-button">
-                <li>Add task and create new one</li>
-                <li>Add task</li>
+                <li><a href="#">Add task and create new one</a></li>
+                <li><a href="#">Add task</a></li>
+
             </ul>
         </div>
     </div>
@@ -178,3 +185,10 @@
 <!--Body end-->
 
 </html>
+
+
+
+
+<!-- <form method="post">
+     <input type="submit" name="getTask" value="1">
+ </form> -->

@@ -28,3 +28,10 @@ rajouter.addEventListener('click',changeContenu);
 
 
 // CONNECT TO DATABASE
+
+//CLEAR FORMULAIRE
+
+document.getElementById("clear").addEventListener("click",
+function(){
+document.getElementById("contenu2").reset();
+});

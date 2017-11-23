@@ -15,7 +15,8 @@ li {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none!important;
+    color: black!important
 }
 
 /* Reset */
@@ -192,6 +193,10 @@ span {
     .display-of-app li {display: flex;
             margin-right: 20px!important;
         }
+
+#all_task {text-decoration:none!important; color:black!important}
+#todo_task{text-decoration:none}
+#done_task{text-decoration:none}
 
 .action-button {
     display: flex;
