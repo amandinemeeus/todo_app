@@ -9,6 +9,7 @@ require 'debug.php';
 	// $response = $response->fetchAll();
 	// echo json_encode($response);
 
+//GET ALL TASKS
 if( isset( $_POST['getAllTask'] ) ){
     $response = "SELECT * FROM task";
     $response = $database->query($response);
@@ -17,6 +18,7 @@ if( isset( $_POST['getAllTask'] ) ){
     echo json_encode($result);
 }
 
+//GET TASK
 if( isset( $_POST['getTask'] ) ){
     $id = $_POST['getTask'];
     $response = "SELECT * FROM task WHERE task_id = :id";
@@ -26,7 +28,6 @@ if( isset( $_POST['getTask'] ) ){
     $result = $response->fetch(); //ou fetchAll
     echo json_encode($result);
 }
-
 
 //INSERT TASKS
 if( isset($_POST['insertTask']) ){
@@ -59,11 +60,9 @@ if( isset($_POST['insertTask']) ){
     }
 }
 
-
 // UPDATE TASK
 if( isset($_POST['updateTask']) ){
 }
-
 
 // SELECT TASK
 if( isset($_POST['selectTask']) ){
@@ -75,7 +74,6 @@ if( isset($_POST['selectTask']) ){
         //SELECT BY ID
     }
 }
-
 
 // DELETE TASK
 if( isset($_POST['deleteTask']) ){
