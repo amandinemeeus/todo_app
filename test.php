@@ -47,26 +47,28 @@
             <ul class="list" id="todo-list">
                 <li class="list-item"> <!--relative-->
                     <!-- <span class="todo-check"></span> -->
+
+                    <?php
+                    $reponse = $database->query('SELECT task_title FROM task LIMIT 3');
+                    ?>
                     <header class="item-header">
-
-                        <li class="item-title" id="done"><span class="done"></span></li>
-                        <li class="item-title" id="late"><span class="late"></span></li>
-                        <li class="item-title" id="todo"></li>
-
-                        <!-- <li class="item-title" id="done"><span class="done">Take a shower</span></li>
-                        <li class="item-title" id="done"><span class="done">Make my bag</span></li>
-                        <li class="item-title" id="done"><span class="done">Take a breakfast</span></li>
-                        <li class="item-title" id="late"><span class="late">Go to bus stop</span></li>
-                        <li class="item-title" id="todo">Be at Becode to 9:00</li>
-                        <li class="item-title" id="todo">Start coding</li>
-                        <li class="item-title" id="todo">I need a real BREAK</li>
-                        <li class="item-title" id="todo">Go to bus stop</li> -->
-                            <!-- <button class="button" type="menu">Cliquez sur moi :)</button> -->
+                        <?php
+                          while ($donnees = $reponse->fetch(PDO::FETCH_ASSOC))
+                          {
+                        ?>
+                        <li class="item-title" id="done"><span class="done"><?php echo $donnees['task_title']; ?></span></li>
+                        <li class="item-title" id="late"><span class="late"><?php echo $donnees['task_title']; ?></span></li>
+                        <li class="item-title" id="todo"><?php echo $donnees['task_title']; ?></li>
+                        <?php
+                          }
+                        ?>
+                        <?php $reponse->closeCursor(); ?>
                             <ul class="menu"> <!--absolute-->
                                 <li class="menu-item"><a href="#">Delete</a></li>
                                 <li class="menu-item"><a href="#">Edit</a></li>
                             </ul>
                     </header>
+
                     <div class="item-container">
                         <!-- My bus arrive on 7:30 I'll be on 7:15 at bus stop -->
                     </div>
@@ -88,7 +90,11 @@
         <div class="centered">
             <ul class="display-of-app">
                 <li>Show:</li>
-                <li class="underline"><a href="#" method="post" name=getAllTask>All task</a></li>
+                <li class="underline">
+                    <form method="post">
+                        <input class="bouton" type="submit" name="getAllTask" value="All task">
+                    </form>
+                </li>
                 <li><a href="#">Todo task</a></li>
                 <li><a href="#">Done task</a></li>
             </ul>
@@ -125,13 +131,12 @@
                 <li class="list-item"> <!--relative-->
                     <header class="item-header">
                         <h2 class="item-big-title">TITLE</h2>
-                        <p class= "item-title"><span class="retrait">My todo title</span></p>
+                        <p class= "item-title"><span class="retrait"><input type="text" name="add-title" id="add-title" required placeholder="My todo title"></span></p>
                         <div class= "item-border"></div>
                     </header>
                     <h2 class="item-big-title">DESCRIPTION</h2>
-                        <div class="item-title"><span class="retrait">My todo description</span></div>
-                        <div class="item-title"><span class="retrait">...</span></div>
-                        <div class="item-title"><span class="retrait">...</span></div>
+                        <div class="item-title"><span class="retrait"><input type="text" name="add-description" id="add-description" required placeholder="My todo description"></span></div>
+
                         <div class= "item-border"></div>
                     <footer class="item-footer" id="next">
                         <h2 class="item-big-title">START AT</h2>
@@ -154,9 +159,16 @@
     <div class="main-footer">
         <div class="centered">
             <ul class="action-button">
-                <li><a href="#">Add task and create new one</a></li>
-                <li><a href="#">Add task</a></li>
-
+                <li>
+                    <form method="post">
+                        <input class="bouton" type="submit" name="" value="Add task and create new one" onClick="ajouter()">
+                    </form>
+                </li>
+                <li>
+                    <form method="post">
+                        <input class="bouton" type="submit" name="" value="Add task" onClick="ajouter()">
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
@@ -170,15 +182,17 @@
 <!--Main end-->
 
 <!--Script start-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript" src="dist/mtr-datepicker.min.js"></script>
 <!--DATEPICKER-->
 <script>
-  var config = {
-    target: 'first-mtr-datepicker'
-  };
-  var myDatepicker = new MtrDatepicker(config);
-</script>
+      var config = {
+        target: 'first-mtr-datepicker'
+      };
+      var myDatepicker = new MtrDatepicker(config);
+      </script>
 <!--Script end-->
 
 
@@ -188,8 +202,11 @@
 </html>
 
 
+<?php
 
-
-<!-- <form method="post">
-     <input type="submit" name="getTask" value="1">
- </form> -->
+if( isset( $_POST['getTab'] ) ){
+	$tab = array(
+		"post" => $_POST['getTab']
+	);
+	echo json_encode($tab);
+}

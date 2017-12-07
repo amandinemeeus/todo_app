@@ -2,7 +2,6 @@
 
 require 'config.php';
 require 'connexion.php';
-require 'debug.php';
 
     //MY RECIPE:
     // $response = $database->query("SELECT * FROM task");
@@ -38,6 +37,7 @@ if( isset($_POST['insertTask']) ){
     //Assigner la date et l'heure à l'aide d'un timestamp Unix
     $startat = new DateTime();
     echo $date->getTimestamp();
+    echo $date;
     $endat = $startat + (24+60+60+7); // 24 heures; 60 minutes; 60 secondes; 7 jours
 
     $response = "INSERT INTO task (
@@ -91,3 +91,8 @@ if( isset($_POST['deleteTask']) ){
     //
     // }
 }
+
+
+// $task = getAllTask();
+// echo json_encode($task);
+// ?>
